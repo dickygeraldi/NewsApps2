@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap.min.css" integrity="sha256-PbaYLBab86/uCEz3diunGMEYvjah3uDFIiID+jAtIfw=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap4.min.css" integrity="sha256-F+DaKAClQut87heMIC6oThARMuWne8+WzxIDT7jXuPA=" crossorigin="anonymous" />
+
+    <title>Report data tagihan</title>
+    <style>
+      body {
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="table-responsive">
+        <center>
+          <h1>Data Transaksi Periode 1 Maret 2019 15:00 - 15:15</h1>
+        </center>
+        <table class="table table-bordered" id="reportTable">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">paymentId</th>
+              <th scope="col">invoiceNumber</th>
+              <th scope="col">indihomeNumber</th>
+              <th scope="col">namaProduct</th>
+              <th scope="col">kodePembayaran</th>
+              <th scope="col">productName</th>
+              <th scope="col">waktuTransaksi</th>
+              <th scope="col">statusInvoice</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% 
+              no=1
+              rows.forEach((item, index) => {
+            %>
+              <tr>
+                <td><%= no++ %></td>
+                <td><%= item.paymentId %></td>
+                <td><%= item.invoiceNumber %></td>
+                <td><%= item.indihomeNumber %></td>
+                <td><%= item.namaProduct %></td>
+                <td><%= item.kodePembayaran %></td>
+                <td><%= item.productName %></td>
+                <td><%= item.waktuTransaksi %></td>
+                <td><%= item.statusInvoice %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js" integrity="sha256-t5ZQTZsbQi8NxszC10CseKjJ5QeMw5NINtOXQrESGSU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap4.min.js" integrity="sha256-hJ44ymhBmRPJKIaKRf3DSX5uiFEZ9xB/qx8cNbJvIMU=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      $(document).ready( () => {
+        $('#reportTable').DataTable();
+      } );
+    </script>
+  </body>
+</html>
